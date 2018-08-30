@@ -1,0 +1,82 @@
+/* You can add global styles to this file, and also import other style files */
+
+// @import "../node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css";
+
+/* You can add global styles to this file, and also import other style files */
+
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+@import "~angular-vertical-timeline/dist/vertical-timeline.css";
+// @import "../node_modules/ng2-dnd/bundles/style.css";
+@import "../node_modules/bootstrap/dist/css/bootstrap.css";
+
+
+
+#body{
+background-color: #DCDCDC;
+}
+
+.addIncident-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+  }
+  
+  .inputbox-width {
+    width: 100%;
+  }
+
+.widthclass{
+    width: 95%;
+    position: absolute;
+    left:50px;
+    display:inline-block;
+    top:85px;
+}
+
+.TaskManagement{
+    position: absolute;
+    display:inline-block;
+    top:76px;
+}
+.mat-expansion-panel-header{
+    height: 80px !important;
+}
+
+.progress .progress-bar {
+    height: 20px !important;
+}
+
+.progress{
+    height: 20px !important;
+}
+
+.view {
+    // background: url("../StaticContent/Images/img\ \(40\).jpg") no-repeat center center;
+    background: url("https://mdbootstrap.com/img/Photos/Others/img (50).jpg") no-repeat center center;
+    background-size: cover;
+}
+
+.panelheaderheight .mat-expansion-panel-header {
+    height: 80px !important;
+}
+
+.my{
+    // background-color: red;
+    top:0px;
+    position:absolute;
+    height:100%;
+    width:100%;
+    display: inline-block;
+
+}
+        
+
+.view1 {
+    background: url("https://mdbootstrap.com/img/Photos/Others/img (51).jpg")no-repeat center center;
+    // background: url("../StaticContent/Images/img\ \(40\).jpg") no-repeat center center;
+    margin-top: -56px;
+}
+.navbar {
+    z-index: 1;
+}
+        

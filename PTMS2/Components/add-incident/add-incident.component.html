@@ -1,0 +1,98 @@
+<div class="widthclass" id="addIncident">
+  <div class="card">
+    <div class="card-body">
+      <form [formGroup]="addIncidentform" (ngSubmit)="AddIncident()" >
+        <div>
+          <div class="row">
+            <div class="col">
+              <mat-form-field class="inputbox-width">
+                <input matInput formControlName="IncidentId" placeholder="Incident Id">
+              </mat-form-field>
+            </div>
+            <div class="col">
+              <mat-form-field class="inputbox-width">
+                <input matInput formControlName="ApplicationName" placeholder="ApplicationName">
+              </mat-form-field>
+            </div>
+            <div class="col">
+              <mat-form-field class="inputbox-width">
+                <input matInput formControlName="Percentage" placeholder="Percentage">
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <mat-form-field class="inputbox-width">
+                <textarea matInput formControlName="Comment" placeholder="Enter your Comment here"></textarea>
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <button class="btn btn-default waves-light" mdbWavesEffect>Save
+                <i class="fa fa-magic ml-1"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+<!-- 
+<div class="widthclass" id="addIncident">
+  <div class="card">
+    <div class="card-body">
+      <form [formGroup]="addIncidentform" (ngSubmit)="AddIncident()" class="addIncident-form widthclass">
+        <table class="inputbox-width" cellspacing="0">
+          <tr>
+            <td>
+              <mat-form-field class="inputbox-width">
+                <input matInput formControlName="IncidentId" placeholder="Incident Id">
+              </mat-form-field>
+            </td>
+          </tr>
+          <tr>
+            <tr>
+              <td>
+                <mat-form-field class="inputbox-width">
+                  <input matInput formControlName="ApplicationName" placeholder="ApplicationName">
+                </mat-form-field>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <mat-form-field class="inputbox-width">
+                  <input matInput formControlName="Percentage" placeholder="Percentage">
+                </mat-form-field>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <mat-form-field class="inputbox-width">
+                  <textarea matInput formControlName="Comment" placeholder="Enter your Comment here"></textarea>
+                </mat-form-field>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <button class="btn btn-default waves-light" mdbWavesEffect>Save
+                  <i class="fa fa-magic ml-1"></i>
+                </button>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                Today Date : {{TodayDate |date:'short'}}
+              </td>
+            </tr>
+        </table>
+      </form>
+    </div>
+  </div>
+</div> -->
