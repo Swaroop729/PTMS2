@@ -12,7 +12,8 @@
 
 
 #body{
-background-color: #DCDCDC;
+// background-color: #DCDCDC;
+background-color: red;
 }
 
 .addIncident-form {
@@ -48,6 +49,7 @@ background-color: #DCDCDC;
 
 .progress{
     height: 20px !important;
+    width: 100%;
 }
 
 .view {
@@ -78,5 +80,6 @@ background-color: #DCDCDC;
 }
 .navbar {
     z-index: 1;
+    background-color: #3f51b5!important;
 }
         

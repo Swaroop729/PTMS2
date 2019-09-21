@@ -1,25 +1,34 @@
+
 <div class="widthclass">
-  <p >This is workgraph</p>
-
-  <h1>
-  {{title}}
-</h1>
-<fusioncharts
-    [id]="id"
-    [width]="width"
-      [height]="height"
-      [type]="type"
-      [dataFormat]="dataFormat"
-      [dataSource]="dataSource" 
+  <p >This is first workgraph</p>
+  <fusioncharts
+  width="80%" 
+  height="450"
+  type="pie3d"
+  dataFormat="json"
+  [dataSource]="dataSource" 
 ></fusioncharts>
 
-<fusioncharts
-    [id]="id2"
-    [width]="width"
-      [height]="height"
-      [type]="type2"
-      [dataFormat]="dataFormat"
-      [dataSource]="dataSource" 
-></fusioncharts>
+
+<div >
+  <p >This is second workgraph</p>
+ </div>
+ <fusioncharts
+ width="80%" 
+ height="450"
+ type="stackedcolumn2d"
+ dataFormat="json"
+ [dataSource]=dataSource1 >
+</fusioncharts>
+  <div >
+    <p >This is third workgraph</p>
+   </div>
+
+   <fusioncharts
+   width="700"
+   height="400"
+   type="Column2d"
+   [dataSource]="dataSource3">
+</fusioncharts>
 
 </div>

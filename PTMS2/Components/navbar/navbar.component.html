@@ -6,7 +6,7 @@
       </logo>
       <links>
           <ul class="navbar-nav mr-auto">
-              <li class="nav-item active waves-light" routerLinkActive="active current" mdbRippleRadius>
+              <li class="nav-item waves-light" routerLinkActive="active current" mdbRippleRadius>
                   <a class="nav-link" routerLink="/Home/" >Home </a>
               </li>
               <li class="nav-item waves-light" routerLinkActive="active current" mdbRippleRadius>
@@ -28,11 +28,24 @@
               <a class="nav-link" routerLink="/AddIncident">Add Incident</a>
       </li>
       <li class="nav-item waves-light" routerLinkActive="active current" mdbRippleRadius>
+        <a class="nav-link" routerLink="/IncidentsNotification">Incidents Notification</a>
+</li>
+      <li class="nav-item waves-light" routerLinkActive="active current" mdbRippleRadius>
           <a class="nav-link" routerLink="/AddLeave">Add Leave</a>
   </li>
-          
+  <li class="nav-item waves-light" routerLinkActive="active current" mdbRippleRadius>
+        <a class="nav-link" routerLink="['/login']" (click)="Logout()">Logout</a>
+</li>
+  <!-- <li  routerLink="['/login']">
+        <a class="nav-link" routerLink="/AddLeave">Addsdf Leave</a>
+</li>    -->
+  <!-- <li class="nav-item waves-light" routerLinkActive="active current" *ngFor="let user of users" mdbRippleRadius>
+        {{user.username}} ({{user.firstName}} {{user.lastName}})
+        - <a class="nav-link" (click)="deleteUser(user.id)" class="text-danger">Delete</a>
+    </li>
+      <p><a [routerLink]="['/login']">Logout</a></p>     -->
+    </ul>
 
-          </ul>
       </links>
   </mdb-navbar>
 </header>   

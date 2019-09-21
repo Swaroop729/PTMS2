@@ -9,6 +9,9 @@
                 <strong>Incident Id : {{item.IncidentId}}</strong>
               </div>
               <div class="col">
+                <strong>Incident Id : {{item.Id}}</strong>
+              </div>
+              <div class="col">
                 <strong> Application Name : {{item.ApplicationName}}</strong>
               </div>
               <div class="col">
@@ -24,13 +27,18 @@
           
           <div class="row">
             <div class="col">
-                <input-editor label="First Name" id="txtname" [(ngModel)]="item.Comment" type="text" placeholder="Enter First Name" (onSave)="UpdateIncident(item)"></input-editor>
-              Comment : {{item.Comment}}
+                <input-editor label="Incident Comment" id="txtname" [(ngModel)]="item.Comment" type="text" placeholder="Enter First Name" (onSave)="UpdateIncident(item)"></input-editor>
+              <!-- Comment : {{item.Comment}} -->
             </div>
           </div>
           <div class="row">
             <div class="col">
-              <div class="progress">
+                <div class="progress">
+                    <div class="progress-bar progress-bar-striped" [style.width.%]="item.Percentage">
+                        {{item.Percentage}}%
+                  </div>
+                </div>
+              <!-- <div class="progress">
                 <div class="progress-bar progress-bar-striped" style="width:40%">
                   Free Space Warning
                 </div>
@@ -39,7 +47,7 @@
                 <div class="progress-bar progress-bar-striped bg-danger" style="width:20%">
                   Danger
                 </div>
-              </div>
+              </div> -->
             </div>
           </div>
         </div>

@@ -1,7 +1,7 @@
 import { WebAPIService } from '../../Service/WebAPI.service';
 import { Component, OnInit } from '@angular/core';
-import { NotificationsService } from 'angular2-notifications';
-import { PushNotificationComponent } from 'ng2-notifications/ng2-notifications';
+// import { NotificationsService } from 'angular2-notifications';
+// import { PushNotificationComponent } from 'ng2-notifications/ng2-notifications';
 
 @Component({
   selector: 'Incident',
@@ -18,7 +18,10 @@ export class IncidentComponent implements OnInit {
     lastOnBottom: true
 }
   
-  constructor(Service :  WebAPIService,private _notificationsService : NotificationsService) {
+  constructor(Service :  WebAPIService,
+    // private _notificationsService : NotificationsService
+  ) {
+
 
     Service.getIncidents()
     .subscribe((Response)=>
@@ -32,19 +35,19 @@ notify1(val : HTMLInputElement){
   console.log(val)
   }
 
-    notify(){
-      this._notificationsService.success(
-        'Some Title',
-        'Some Content',
-        {
-            timeOut: 5000,
-            showProgressBar: true,
-            pauseOnHover: false,
-            clickToClose: false,
-            maxLength: 10
-        }
-    )
-    }
+    // notify(){
+    //   this._notificationsService.success(
+    //     'Some Title',
+    //     'Some Content',
+    //     {
+    //         timeOut: 5000,
+    //         showProgressBar: true,
+    //         pauseOnHover: false,
+    //         clickToClose: false,
+    //         maxLength: 10
+    //     }
+    // )
+    // }
 
   ngOnInit(  )  {
     

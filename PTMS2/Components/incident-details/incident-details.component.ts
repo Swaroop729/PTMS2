@@ -10,27 +10,19 @@ import { Incident } from '../../Models/Incident';
 })
 export class IncidentDetailsComponent implements OnInit {
 
-  Incident : Incident =  <Incident>{};
+  Incidents;
+  Incident;
   constructor(private route : ActivatedRoute,private service : WebAPIService) { }
 
   ngOnInit() {
 
-    let id =+ this.route.snapshot.paramMap.get('Id');
+    let id = this.route.snapshot.paramMap.get('IncidentId');
+    console.log("id sending to service",id);
     this.service.getIncidentDetails(id)
     .subscribe((Response)=>
     {
-      this.Incident=Response.json()
-      console.log("Incident",this.Incident);
+      this.Incidents=JSON.parse(Response.json());
+      console.log("Incident",this.Incidents);
     })
   }
- 
-  // anotherfunc(id){
-  //   console.log("Logging into another function");
-  //   this.service.getIncidentDetails(id)
-  //   .subscribe((Response)=>
-  //   {
-  //     this.Incident=Response.json()
-  //     console.log("Incident",this.Incident);
-  //   })
-  // }
 }

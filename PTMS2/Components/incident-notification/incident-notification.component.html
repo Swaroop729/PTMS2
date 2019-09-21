@@ -1,0 +1,38 @@
+
+  <div class="row widthclass">
+    <div class="col">
+      <div *ngFor="let item of IncidentsNotifications">
+        <div class="card card-body">
+          <!-- <div class="card-title"> -->
+            <div class="row">
+              <div class="col">
+                <strong>Incident Id : {{item.IncidentId}}</strong>
+              </div>
+              <div class="col">
+                <strong> Application Name : {{item.ApplicationName}}</strong>
+              </div>
+              <div class="col">
+                <strong> Incident Priority : {{item.IncidentPriority}}</strong>
+              </div>
+              </div>
+              <div class="row">
+              <div class="col">
+                Resolution Date : {{item.ResolutionDate}}
+              </div>
+              <div class="col">
+                  Created Date : {{item.CreatedDate}}
+              </div>
+              <div class="col">
+              </div>
+            </div>
+          
+          <div class="row">
+            <div class="col">
+                <input-editor  id="txtname" [(ngModel)]="item.IncidentNotes" type="text" placeholder="Incident Comment" (onSave)="UpdateIncident(item)"></input-editor>
+            </div>
+          </div>
+        </div>
+      <br/>
+      </div>
+    </div>
+  </div>

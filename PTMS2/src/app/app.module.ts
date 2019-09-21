@@ -73,13 +73,23 @@ import {DndModule} from 'ng2-dnd';
 // import { NDV_DIRECTIVES } from 'angular2-click-to-edit/components';
 import {InputEditorModule} from 'angular-inline-editors';
 import { SelectEditorModule } from 'angular-inline-editors';
-import * as FusionCharts from 'fusioncharts';
+// The below is the new version angular 6 of fusion charts module
+import { FusionChartsModule } from 'angular-fusioncharts';
+import FusionCharts   from 'fusioncharts/core';
+import Column2D from 'fusioncharts/viz/column2d'; // Column2D chart
+import stackedcolumn2d from 'fusioncharts/viz/stackedcolumn2d'; // stackedcolumn2d
+import pie3d from 'fusioncharts/viz/pie3d'; // pie3d
 import * as Charts from 'fusioncharts/fusioncharts.charts';
 import * as FintTheme from 'fusioncharts/themes/fusioncharts.theme.fint';
-import { FusionChartsModule } from 'angular4-fusioncharts';
-import { HttpClientModule } from '@angular/common/http';
+import * as FusionTheme from 'fusioncharts/themes/fusioncharts.theme.fusion';
+// import { FusionChartsModule } from 'angular4-fusioncharts';
+import { HttpClientModule , HTTP_INTERCEPTORS } from '@angular/common/http';
 
-
+import { fakeBackendProvider } from '../../helpers/fake-backend';
+import { AuthGuard } from '../../guards/auth.gaurd';
+import {  ErrorInterceptor } from '../../helpers/error.interceptor';
+import { JwtInterceptor } from '../../helpers/jwt.interceptor';
+import { AlertService, AuthenticationService, UserService } from '../../Service/';
 
 import { AppComponent } from './app.component';
 //The additonal components are added here
@@ -95,12 +105,20 @@ import { TaskDetailComponent } from '../../Components/task-detail/task-detail.co
 import { WorkGraphComponent } from '../../Components/work-graph/work-graph.component';
 import { AddIncidentComponent } from '../../Components/add-incident/add-incident.component'
 import { AddLeaveComponent } from '../../Components/add-leave/add-leave.component';
+import {LoginComponent} from '../../Components/login/login.component';
+import {AlertComponent} from '../../Components/alert/alert.component';
+import {RegisterComponent} from '../../Components/register/register.component';
+import {IncidentNotificationComponent} from '../../Components/incident-notification/incident-notification.component';
 
 
+FusionChartsModule.fcRoot(FusionCharts,stackedcolumn2d, pie3d,Column2D,FintTheme,Charts,FusionTheme);
 @NgModule({
   declarations: [
     AppComponent,
-    IncidentComponent,
+    LoginComponent,
+    RegisterComponent,
+    AlertComponent,
+    IncidentComponent,  
     HomePageComponent,
     // PushNotificationComponent,
     DashboardComponent,
@@ -108,6 +126,7 @@ import { AddLeaveComponent } from '../../Components/add-leave/add-leave.componen
     NavbarComponent,
     IncidentsComponent,
     IncidentDetailsComponent,
+    IncidentNotificationComponent,
     TaskDetailComponent,
     WorkGraphComponent,
     AddIncidentComponent,
@@ -132,7 +151,7 @@ import { AddLeaveComponent } from '../../Components/add-leave/add-leave.componen
     MatInputModule,
     MatFormFieldModule,
     FusionChartsModule,
-    FusionChartsModule.forRoot(FusionCharts, Charts, FintTheme),
+    // FusionChartsModule.forRoot(FusionCharts,Column2D),
     DndModule.forRoot(),
     VerticalTimelineModule,
     // SimpleNotificationsModule.forRoot(),
@@ -140,14 +159,17 @@ import { AddLeaveComponent } from '../../Components/add-leave/add-leave.componen
     InputEditorModule.forRoot(),
     SelectEditorModule.forRoot(),
     RouterModule.forRoot([
-      {      path:'Home' , component:HomePageComponent,    },
+      {      path:'Home' , component:HomePageComponent, canActivate: [AuthGuard]   },
+      { path: 'login', component: LoginComponent },
+      { path: 'register', component: RegisterComponent },
       {      path:'Incident' , component:IncidentComponent,    },
-      // {      path:'Incidents' , component:IncidentsComponent,    },
+      {      path:'Incidents' , component:IncidentsComponent,    },
+      {      path:'IncidentsNotification' , component:IncidentNotificationComponent,    },
       {      path:'AddIncident' , component:AddIncidentComponent,    },
       {      path:'AddLeave' , component:AddLeaveComponent,    },
       {      path:'TaskManagement' , component:TasksManagementComponent,    },
       {      path:'WorkGraph' , component:WorkGraphComponent,    },
-      {      path:'IncidentDetail/:Id' , component:IncidentDetailsComponent,    },
+      {      path:'IncidentDetail/:IncidentId' , component:IncidentDetailsComponent,    },
       {      path:'**' , component:HomePageComponent,    },
     
     ])
@@ -155,7 +177,16 @@ import { AddLeaveComponent } from '../../Components/add-leave/add-leave.componen
   ],
   providers: [
     WebAPIService,
-    // PushNotificationComponent
+    // PushNotificationComponent,
+    AuthGuard,
+    AlertService,
+    AuthenticationService,
+    UserService,
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
+
+    // provider used to create fake backend
+    fakeBackendProvider
   ],
   bootstrap: [AppComponent]
 })

@@ -17,8 +17,9 @@ export class WebAPIService {
   // url='  http://localhost:3000/Incidents'
   // using github.json
 //  url = 'https://my-json-server.typicode.com/Swaroop729/WebAPI/Incidents/'
- url = `http://localhost:5000/api/Incident`;
- url1 = `http://localhost:5000/api`
+ url = `http://localhost:56161/api/Incident`;
+ url1 = `http://localhost:56161/api/Incident`;
+ url2 = `http://localhost:56161/api/Incidents`;
  CQA;
  Scorecard;
  Gupta;
@@ -29,13 +30,12 @@ contentheaders = new HttpHeaders().set('content-type', 'application/json');
 
     constructor(private http : Http, private _httpclient : HttpClient) {    }
     getIncidents(){
-      return this.http.get(this.url);
+      // this.url=this.url2;
+      return this.http.get(this.url2);
      }
 
-     getIncidentDetails(id:number): any {
-       this.url = `${this.url}/${id}`
-      console.log("id in webservice : " + this.url);
-      return this.http.get(this.url);    
+     getIncidentDetails(id){
+      return this.http.get(this.url2 + '/' +'GetIncidentDetails'+'/'+ id +'/'+1);    
     }
 
     putIncident(post){
@@ -49,6 +49,21 @@ contentheaders = new HttpHeaders().set('content-type', 'application/json');
         headers:headers
       });
       return this.http.put(this.url+'/'+ post.Id,JSON.stringify(post),options)
+     }
+
+     putIncidentNotification(post){
+      // return this.http.put(this.url + '?IncidentId=' + post.IncidentId,JSON.stringify(post))
+      console.log(JSON.stringify(post,null,2));
+      this.url = this.url1;
+      console.log("hitting this url",this.url);
+      var headers = new Headers();
+      headers.append('Content-Type', 'application/json');
+      headers.append("Allow-Control-Allow-Origin","*");
+       var options = new RequestOptions({
+        method: RequestMethod.Put,
+        headers:headers
+      });
+      return this.http.put(this.url+'/'+'PutIncidentNotification'+'/'+ post.Id,JSON.stringify(post),options)
      }
 
      AddIncident(post){
@@ -76,21 +91,50 @@ contentheaders = new HttpHeaders().set('content-type', 'application/json');
      }
 
      CountByAppNames(){
-      this.http.get(this.url + '?ApplicationName=' + "CQA")
-      .subscribe((response)=>{
-        this.CQA=response.json().length;
-        this.ListByGroupNames.push({label:"CQA",value:this.CQA});
-      })
-      this.http.get(this.url + '?ApplicationName=' + "Scorecard")
-      .subscribe((response)=>{
-        this.Scorecard=response.json().length;
-        this.ListByGroupNames.push({label:"Scorecard",value:this.Scorecard})
-      })
-      this.http.get(this.url + '?ApplicationName=' + "Gupta")
-      .subscribe((response)=>{
-        this.Gupta=response.json().length;
-        this.ListByGroupNames.push({label:"Gupta",value:this.Gupta})
-      })
-      return this.ListByGroupNames;
+      //// Fetching the username from the local storage
+      console.log("coming into req funct");
+      var userdetails = JSON.parse(localStorage.getItem("currentUser")) ;
+      // var user = userdetails["username"];
+      var userid=1;
+      var month =4;
+      var year = 2018;
+      var resp;
+      this.url = `${this.url}/GetInCompletedTasksForUser/${userid}/${month}/${year}`;
+      console.log(this.url);
+
+      // this.http.get(this.url)
+      // .subscribe((response)=>{
+      //     resp = JSON.parse(response.json());
+      //     console.log(resp);
+      //   });
+
+
+      // this.http.get(this.url + '?ApplicationName=' + "CQA")
+      // .subscribe((response)=>{
+      //   this.CQA=response.json().length;
+      //   this.ListByGroupNames.push({label:"CQA",value:this.CQA});
+      // })
+      // this.http.get(this.url + '?ApplicationName=' + "Scorecard")
+      // .subscribe((response)=>{
+      //   this.Scorecard=response.json().length;
+      //   this.ListByGroupNames.push({label:"Scorecard",value:this.Scorecard})
+      // })
+      // this.http.get(this.url + '?ApplicationName=' + "Gupta")
+      // .subscribe((response)=>{
+      //   this.Gupta=response.json().length;
+      //   this.ListByGroupNames.push({label:"Gupta",value:this.Gupta})
+      // })
+      // return resp;
+      return this.http.get(this.url);
+     }
+
+     GetIncidentNotifications(){
+      //// Fetching the username from the local storage
+      var userdetails = JSON.parse(localStorage.getItem("currentUser")) ;
+      // var user = userdetails["username"];
+      var userid=1;
+      this.url = `${this.url}/GetIncidentNotifications/${userid}`;
+      console.log("*",this.url);
+      return this.http.get(this.url);
      }
   }   
