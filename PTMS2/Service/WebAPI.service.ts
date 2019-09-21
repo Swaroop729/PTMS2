@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
-import { Http, RequestOptions, RequestMethod,Headers, Jsonp  } from '@angular/http';
+//import {  RequestOptions, RequestMethod,  } from '@angular/common/http';
 import { ICountofTickets } from '../Interfaces/CountofTickets';
 import { Incident } from '../Models/Incident';
 import { Leave } from '../Models/Leave';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders  } from '@angular/common/http';
 
 
 
@@ -28,7 +28,7 @@ contentheaders = new HttpHeaders().set('content-type', 'application/json');
 
 
 
-    constructor(private http : Http, private _httpclient : HttpClient) {    }
+    constructor(private http : HttpClient, private _httpclient : HttpClient) {    }
     getIncidents(){
       // this.url=this.url2;
       return this.http.get(this.url2);
@@ -37,34 +37,35 @@ contentheaders = new HttpHeaders().set('content-type', 'application/json');
      getIncidentDetails(id){
       return this.http.get(this.url2 + '/' +'GetIncidentDetails'+'/'+ id +'/'+1);    
     }
+    /* The below consists of request methods and options and headers which are not working as of now so 
+    commenting it as it is a post method we will work on it later */
+    // putIncident(post){
+    //   // return this.http.put(this.url + '?IncidentId=' + post.IncidentId,JSON.stringify(post))
+    //   console.log(JSON.stringify(post,null,2))
+    //   var headers = new Headers();
+    //   headers.append('Content-Type', 'application/json');
+    //   headers.append("Allow-Control-Allow-Origin","*");
+    //    var options = new RequestOptions({
+    //     method: RequestMethod.Put,
+    //     headers:headers
+    //   });
+    //   return this.http.put(this.url+'/'+ post.Id,JSON.stringify(post),options)
+    //  }
 
-    putIncident(post){
-      // return this.http.put(this.url + '?IncidentId=' + post.IncidentId,JSON.stringify(post))
-      console.log(JSON.stringify(post,null,2))
-      var headers = new Headers();
-      headers.append('Content-Type', 'application/json');
-      headers.append("Allow-Control-Allow-Origin","*");
-       var options = new RequestOptions({
-        method: RequestMethod.Put,
-        headers:headers
-      });
-      return this.http.put(this.url+'/'+ post.Id,JSON.stringify(post),options)
-     }
-
-     putIncidentNotification(post){
-      // return this.http.put(this.url + '?IncidentId=' + post.IncidentId,JSON.stringify(post))
-      console.log(JSON.stringify(post,null,2));
-      this.url = this.url1;
-      console.log("hitting this url",this.url);
-      var headers = new Headers();
-      headers.append('Content-Type', 'application/json');
-      headers.append("Allow-Control-Allow-Origin","*");
-       var options = new RequestOptions({
-        method: RequestMethod.Put,
-        headers:headers
-      });
-      return this.http.put(this.url+'/'+'PutIncidentNotification'+'/'+ post.Id,JSON.stringify(post),options)
-     }
+    //  putIncidentNotification(post){
+    //   // return this.http.put(this.url + '?IncidentId=' + post.IncidentId,JSON.stringify(post))
+    //   console.log(JSON.stringify(post,null,2));
+    //   this.url = this.url1;
+    //   console.log("hitting this url",this.url);
+    //   var headers = new Headers();
+    //   headers.append('Content-Type', 'application/json');
+    //   headers.append("Allow-Control-Allow-Origin","*");
+    //    var options = new OptionsType({
+    //     method: RequestMethod.Put,
+    //     headers:headers
+    //   });
+    //   return this.http.put(this.url+'/'+'PutIncidentNotification'+'/'+ post.Id,JSON.stringify(post),options)
+    //  }
 
      AddIncident(post){
       const headers = new HttpHeaders().set('content-type', 'application/json');
