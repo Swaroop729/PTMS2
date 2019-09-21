@@ -50,10 +50,9 @@
 
 
 
-import { BrowserModule } from '@angular/platform-browser';
+//import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms'
-import { HttpModule } from '@angular/http';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatButtonModule} from '@angular/material/button';
 import {MatDatepickerModule , MatNativeDateModule } from '@angular/material';
@@ -61,7 +60,7 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {MatCardModule} from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material';
 import { MatInputModule } from '@angular/material';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+//import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { RouterModule} from '@angular/router';
 import {MatSidenavModule} from '@angular/material/sidenav';
@@ -134,14 +133,14 @@ FusionChartsModule.fcRoot(FusionCharts,stackedcolumn2d, pie3d,Column2D,FintTheme
     
   ],
   imports: [
-    BrowserModule,
+  //  BrowserModule,
     MatSidenavModule,
     MatToolbarModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpModule,
     HttpClientModule,
-    BrowserAnimationsModule,
+    HttpClientModule,
+    //BrowserAnimationsModule,
     MatExpansionModule,
     MatButtonModule,
     MatDatepickerModule,
