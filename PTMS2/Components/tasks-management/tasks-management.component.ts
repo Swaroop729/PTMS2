@@ -17,8 +17,8 @@ export class TasksManagementComponent implements OnInit {
     Service.getIncidents()
     .subscribe((Response)=>
     {
-      this.Incidents=Response.json()
-      this.Complete=Response.json()
+      //this.Incidents=Response
+      //this.Complete=Response.toString()
     })
    }
 

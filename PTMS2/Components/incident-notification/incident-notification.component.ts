@@ -14,7 +14,7 @@ export class IncidentNotificationComponent implements OnInit {
     Service.GetIncidentNotifications().subscribe(
       (Response)=>
     {
-      this.IncidentsNotifications=JSON.parse(Response.json());
+      this.IncidentsNotifications=JSON.parse(Response.toString());
       console.log("obj receiving in incident notf",this.IncidentsNotifications)
     })
    }
@@ -25,8 +25,8 @@ export class IncidentNotificationComponent implements OnInit {
   UpdateIncident(post){
     //get the current user and replace it with 1;
     post.id = 1;
-    this.Service.putIncidentNotification(post)
-    .subscribe((response)=>{console.log(response)})
+    //this.Service.putIncidentNotification(post)
+    //.subscribe((response)=>{console.log(response)})
     
   }
 

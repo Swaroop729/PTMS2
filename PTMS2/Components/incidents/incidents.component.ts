@@ -18,14 +18,14 @@ export class IncidentsComponent implements OnInit {
   Service.getIncidents()
   .subscribe((Response)=>
   {
-    this.Incidents=Response.json()
+    this.Incidents=Response.toString();
   })
 }
   ngOnInit() {
   }
   UpdateIncident(post){
-    this.Service.putIncident(post)
-    .subscribe((response)=>{console.log(response)})
+    //this.Service.putIncident(post)
+    //.subscribe((response)=>{console.log(response)})
     
   }
 

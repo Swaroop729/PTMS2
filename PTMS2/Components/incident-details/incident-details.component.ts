@@ -21,7 +21,7 @@ export class IncidentDetailsComponent implements OnInit {
     this.service.getIncidentDetails(id)
     .subscribe((Response)=>
     {
-      this.Incidents=JSON.parse(Response.json());
+      this.Incidents=JSON.parse(Response.toString());
       console.log("Incident",this.Incidents);
     })
   }

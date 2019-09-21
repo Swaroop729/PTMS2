@@ -52,7 +52,7 @@ contentheaders = new HttpHeaders().set('content-type', 'application/json');
     //   return this.http.put(this.url+'/'+ post.Id,JSON.stringify(post),options)
     //  }
 
-    //  putIncidentNotification(post){
+      putIncidentNotification(post){
     //   // return this.http.put(this.url + '?IncidentId=' + post.IncidentId,JSON.stringify(post))
     //   console.log(JSON.stringify(post,null,2));
     //   this.url = this.url1;
@@ -65,7 +65,7 @@ contentheaders = new HttpHeaders().set('content-type', 'application/json');
     //     headers:headers
     //   });
     //   return this.http.put(this.url+'/'+'PutIncidentNotification'+'/'+ post.Id,JSON.stringify(post),options)
-    //  }
+     }
 
      AddIncident(post){
       const headers = new HttpHeaders().set('content-type', 'application/json');

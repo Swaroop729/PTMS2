@@ -17,7 +17,7 @@ export class WorkGraphComponent implements OnInit {
     Service.CountByAppNames().subscribe(
       (Response)=>
     {
-      this.obj=Response.json();
+      this.obj=Response.toString();
       console.log("obj receiving",this.obj)
     })
 
