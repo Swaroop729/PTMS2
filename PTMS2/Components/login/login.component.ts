@@ -25,7 +25,7 @@ export class LoginComponent implements OnInit {
       private alertService: AlertService) {}
 
       LoginHomePage(){
-        this.router.navigate(["/Home/"]);
+        this.router.navigate(['/Home/']);
       }
 
   ngOnInit() {

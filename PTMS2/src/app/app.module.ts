@@ -109,6 +109,7 @@ import {LoginComponent} from '../../Components/login/login.component';
 import {AlertComponent} from '../../Components/alert/alert.component';
 import {RegisterComponent} from '../../Components/register/register.component';
 import {IncidentNotificationComponent} from '../../Components/incident-notification/incident-notification.component';
+import { CommonModule } from '@angular/common';
 
 
 FusionChartsModule.fcRoot(FusionCharts,stackedcolumn2d, pie3d,Column2D,FintTheme,Charts,FusionTheme);
@@ -135,6 +136,7 @@ FusionChartsModule.fcRoot(FusionCharts,stackedcolumn2d, pie3d,Column2D,FintTheme
   ],
   imports: [
   //  BrowserModule,
+    CommonModule,
     MatSidenavModule,
     MatToolbarModule,
     FormsModule,
