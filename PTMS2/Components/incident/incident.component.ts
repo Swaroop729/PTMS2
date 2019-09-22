@@ -7,32 +7,31 @@ import { Component, OnInit } from '@angular/core';
   selector: 'Incident',
   templateUrl: './incident.component.html',
   styleUrls: ['./incident.component.css'],
-  
+
 })
 export class IncidentComponent implements OnInit {
   Incidents;
-  tomorrow = new Date(2017, 9, 20, 14,34);
+  tomorrow = new Date(2017, 9, 20, 14, 34);
   options = {
-    position: ["bottom", "left"],
+    position: ['bottom', 'left'],
     timeOut: 5000,
     lastOnBottom: true
-}
-  
-  constructor(Service :  WebAPIService,
+};
+
+  constructor(Service:  WebAPIService,
     // private _notificationsService : NotificationsService
   ) {
 
 
     Service.getIncidents()
-    .subscribe((Response)=>
-    {
-      this.Incidents=Response.toString()
-    })
+    .subscribe((Response) => {
+      this.Incidents = Response.toString();
+    });
     }
 
 
-notify1(val : HTMLInputElement){
-  console.log(val)
+notify1(val: HTMLInputElement) {
+  console.log(val);
   }
 
     // notify(){
@@ -50,7 +49,7 @@ notify1(val : HTMLInputElement){
     // }
 
   ngOnInit(  )  {
-    
+
   }
- 
+
 }

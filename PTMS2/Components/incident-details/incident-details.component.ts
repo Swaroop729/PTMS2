@@ -12,17 +12,16 @@ export class IncidentDetailsComponent implements OnInit {
 
   Incidents;
   Incident;
-  constructor(private route : ActivatedRoute,private service : WebAPIService) { }
+  constructor(private route: ActivatedRoute, private service: WebAPIService) { }
 
   ngOnInit() {
 
-    let id = this.route.snapshot.paramMap.get('IncidentId');
-    console.log("id sending to service",id);
+    const id = this.route.snapshot.paramMap.get('IncidentId');
+    console.log('id sending to service', id);
     this.service.getIncidentDetails(id)
-    .subscribe((Response)=>
-    {
-      this.Incidents=JSON.parse(Response.toString());
-      console.log("Incident",this.Incidents);
-    })
+    .subscribe((Response) => {
+      this.Incidents = JSON.parse(Response.toString());
+      console.log('Incident', this.Incidents);
+    });
   }
 }

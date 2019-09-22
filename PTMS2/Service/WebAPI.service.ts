@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-//import {  RequestOptions, RequestMethod,  } from '@angular/common/http';
+// import {  RequestOptions, RequestMethod,  } from '@angular/common/http';
 import { ICountofTickets } from '../Interfaces/CountofTickets';
 import { Incident } from '../Models/Incident';
 import { Leave } from '../Models/Leave';
@@ -13,7 +13,7 @@ export class WebAPIService {
   // url = 'https://my-json-server.typicode.com/Swaroop729/WebAPI'
   // url = 'https://my-json-server.typicode.com/Swaroop729/WebAPI/db'
 
-  // Using the json-server 
+  // Using the json-server
   // url='  http://localhost:3000/Incidents'
   // using github.json
 //  url = 'https://my-json-server.typicode.com/Swaroop729/WebAPI/Incidents/'
@@ -23,21 +23,21 @@ export class WebAPIService {
  CQA;
  Scorecard;
  Gupta;
-ListByGroupNames: Array<ICountofTickets>= [];
+ListByGroupNames: Array<ICountofTickets> = [];
 contentheaders = new HttpHeaders().set('content-type', 'application/json');
 
 
 
-    constructor(private http : HttpClient, private _httpclient : HttpClient) {    }
-    getIncidents(){
+    constructor(private http: HttpClient, private _httpclient: HttpClient) {    }
+    getIncidents() {
       // this.url=this.url2;
       return this.http.get(this.url2);
      }
 
-     getIncidentDetails(id){
-      return this.http.get(this.url2 + '/' +'GetIncidentDetails'+'/'+ id +'/'+1);    
+     getIncidentDetails(id) {
+      return this.http.get(this.url2 + '/' + 'GetIncidentDetails' + '/' + id + '/' + 1);
     }
-    /* The below consists of request methods and options and headers which are not working as of now so 
+    /* The below consists of request methods and options and headers which are not working as of now so
     commenting it as it is a post method we will work on it later */
     // putIncident(post){
     //   // return this.http.put(this.url + '?IncidentId=' + post.IncidentId,JSON.stringify(post))
@@ -52,7 +52,7 @@ contentheaders = new HttpHeaders().set('content-type', 'application/json');
     //   return this.http.put(this.url+'/'+ post.Id,JSON.stringify(post),options)
     //  }
 
-      putIncidentNotification(post){
+      putIncidentNotification(post) {
     //   // return this.http.put(this.url + '?IncidentId=' + post.IncidentId,JSON.stringify(post))
     //   console.log(JSON.stringify(post,null,2));
     //   this.url = this.url1;
@@ -67,9 +67,9 @@ contentheaders = new HttpHeaders().set('content-type', 'application/json');
     //   return this.http.put(this.url+'/'+'PutIncidentNotification'+'/'+ post.Id,JSON.stringify(post),options)
      }
 
-     AddIncident(post){
+     AddIncident(post) {
       const headers = new HttpHeaders().set('content-type', 'application/json');
-      let incident = new Incident();
+      const incident = new Incident();
       incident.ApplicationName = post.ApplicationName;
       incident.Percentage = post.Percentage;
       incident.Comment = post.Comment;
@@ -78,28 +78,27 @@ contentheaders = new HttpHeaders().set('content-type', 'application/json');
       // incident.IncidentId = "INC0000000000001";
       // console.log("incident id",incident.IncidentId);
       incident.ModifiedDate = post.CreatedDate;
-      incident.ResolutionDate= post.ResolutionDate;
-      return this._httpclient.post<Incident>(this.url,incident, {
+      incident.ResolutionDate = post.ResolutionDate;
+      return this._httpclient.post<Incident>(this.url, incident, {
           headers
-      })
+      });
      }
 
-     AddLeave(post){
+     AddLeave(post) {
       const contentheaders = new HttpHeaders().set('content-type', 'application/json');
        this.url = `${this.url1}/Leave`;
-       console.log(this.url,JSON.stringify(post,null,2) );
-      return this._httpclient.post<Leave>(this.url,post);  
+       console.log(this.url, JSON.stringify(post, null, 2) );
+      return this._httpclient.post<Leave>(this.url, post);
      }
 
-     CountByAppNames(){
+     CountByAppNames() {
       //// Fetching the username from the local storage
-      console.log("coming into req funct");
-      var userdetails = JSON.parse(localStorage.getItem("currentUser")) ;
+      console.log('coming into req funct');
+      const userdetails = JSON.parse(localStorage.getItem('currentUser')) ;
       // var user = userdetails["username"];
-      var userid=1;
-      var month =4;
-      var year = 2018;
-      var resp;
+      const userid = 1;
+      const month = 4;
+      const year = 2018;
       this.url = `${this.url}/GetInCompletedTasksForUser/${userid}/${month}/${year}`;
       console.log(this.url);
 
@@ -129,13 +128,13 @@ contentheaders = new HttpHeaders().set('content-type', 'application/json');
       return this.http.get(this.url);
      }
 
-     GetIncidentNotifications(){
+     GetIncidentNotifications() {
       //// Fetching the username from the local storage
-      var userdetails = JSON.parse(localStorage.getItem("currentUser")) ;
+      const userdetails = JSON.parse(localStorage.getItem('currentUser')) ;
       // var user = userdetails["username"];
-      var userid=1;
+      const userid = 1;
       this.url = `${this.url}/GetIncidentNotifications/${userid}`;
-      console.log("*",this.url);
+      console.log('*', this.url);
       return this.http.get(this.url);
      }
-  }   
+  }

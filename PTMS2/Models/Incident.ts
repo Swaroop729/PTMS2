@@ -1,7 +1,7 @@
-import { IIncidents} from '../Interfaces/Incidents'
+import { IIncidents} from '../Interfaces/Incidents';
 
 
-export class Incident implements IIncidents{
+export class Incident implements IIncidents {
     Id: number;
     IncidentId: string;
     Percentage: number;
@@ -10,7 +10,7 @@ export class Incident implements IIncidents{
     CreatedDate: Date;
     ModifiedDate: Date;
     ResolutionDate: Date;
-    IncidentPriority:number;
-    TrackerRef:number;
+    IncidentPriority: number;
+    TrackerRef: number;
 
 }

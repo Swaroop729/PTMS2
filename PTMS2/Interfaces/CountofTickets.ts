@@ -1,4 +1,4 @@
-export interface ICountofTickets{
-  label : string;
-  value :number;
+export interface ICountofTickets {
+  label: string;
+  value: number;
 }

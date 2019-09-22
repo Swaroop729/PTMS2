@@ -8,25 +8,24 @@ import { WebAPIService } from '../../Service/WebAPI.service';
 })
 export class IncidentsComponent implements OnInit {
   Incidents;
-  tomorrow = new Date(2017, 9, 20, 14,34);
+  tomorrow = new Date(2017, 9, 20, 14, 34);
   options = {
-    position: ["bottom", "left"],
+    position: ['bottom', 'left'],
     timeOut: 5000,
     lastOnBottom: true
-  }
-  constructor( private Service :  WebAPIService) { 
+  };
+  constructor( private Service:  WebAPIService) {
   Service.getIncidents()
-  .subscribe((Response)=>
-  {
-    this.Incidents=Response.toString();
-  })
+  .subscribe((Response) => {
+    this.Incidents = Response.toString();
+  });
 }
   ngOnInit() {
   }
-  UpdateIncident(post){
-    //this.Service.putIncident(post)
-    //.subscribe((response)=>{console.log(response)})
-    
+  UpdateIncident(post) {
+    // this.Service.putIncident(post)
+    // .subscribe((response)=>{console.log(response)})
+
   }
 
 

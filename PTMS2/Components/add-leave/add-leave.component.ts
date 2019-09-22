@@ -10,17 +10,24 @@ import { Leave } from '../../Models/Leave';
   styleUrls: ['./add-leave.component.scss']
 })
 export class AddLeaveComponent implements OnInit {
-  StartDate= new Date();
-  EndDate= new Date();
+  StartDate = new Date();
+  EndDate = new Date();
   leave = new Leave();
-  StartDateChange(d:Date){
+  addLeaveform = new FormGroup({
+    StartDate : new FormControl(),
+    EndDate : new FormControl(),
+    // FullDay : new FormControl(),
+    LeaveReason : new FormControl(),
+  });
+
+  StartDateChange(d: Date) {
     d.setMinutes( d.getMinutes() + 530);
     this.StartDate = d;
     console.log(d);
   }
-  EndDateChange(d:Date){
+  EndDateChange(d: Date) {
     d.setMinutes( d.getMinutes() + 530   );
-    this.EndDate = d;    
+    this.EndDate = d;
     console.log(d);
   }
 
@@ -34,26 +41,21 @@ export class AddLeaveComponent implements OnInit {
     return day !== 0 && day !== 6;
   }
 
-  addLeaveform = new FormGroup({
-    StartDate : new FormControl(),
-    EndDate : new FormControl(),
-    // FullDay : new FormControl(),
-    LeaveReason : new FormControl(),
-  });
 
 
-  constructor(private Service : WebAPIService) {  
+
+  constructor(private Service: WebAPIService) {
   }
 
-  AddLeave(){
-    console.log(JSON.stringify(this.addLeaveform.value,null,2));
+  AddLeave() {
+    console.log(JSON.stringify(this.addLeaveform.value, null, 2));
 
-    this.leave.StartDate = this.StartDate
+    this.leave.StartDate = this.StartDate;
     this.leave.EndDate = this.EndDate;
     this.leave.LeaveReason = this.addLeaveform.controls['LeaveReason'].value;
     this.leave.UserId = 7 ;
     this.Service.AddLeave(this.leave)
-    .subscribe((response)=>{console.log(response)}) 
+    .subscribe((response) => {console.log(response); });
   }
   ngOnInit() {
   }

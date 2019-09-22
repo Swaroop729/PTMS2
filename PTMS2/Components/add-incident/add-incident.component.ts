@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { WebAPIService } from '../../Service/WebAPI.service';
-import {Incident} from '../../Models/Incident'
- 
+import {Incident} from '../../Models/Incident';
+
 
 @Component({
   selector: 'app-add-incident',
@@ -12,9 +12,9 @@ import {Incident} from '../../Models/Incident'
 export class AddIncidentComponent implements OnInit {
 
   public TodayDate: Date = new Date();
-  public incident : Incident = new Incident();
+  public incident: Incident = new Incident();
 
-  constructor(private Service :  WebAPIService) {
+  constructor(private Service:  WebAPIService) {
     console.log(this.TodayDate);
    }
   addIncidentform = new FormGroup({
@@ -29,8 +29,8 @@ export class AddIncidentComponent implements OnInit {
 
   ngOnInit() {
   }
-  
-  AddIncident(){ 
+
+  AddIncident() {
     // this.addIncidentform.setValue({CreatedDate: this.TodayDate , ResolutionDate : this.TodayDate , ModifiedDate : this.TodayDate});
     this.incident.ApplicationName = this.addIncidentform.controls['ApplicationName'].value;
     this.incident.IncidentId = this.addIncidentform.controls['IncidentId'].value;
@@ -43,7 +43,7 @@ export class AddIncidentComponent implements OnInit {
 
     // Subscribing the observable to add the Incident
     this.Service.AddIncident(this.incident)
-    .subscribe((response)=>{console.log(response)})  
+    .subscribe((response) => {console.log(response); });
   }
 
 

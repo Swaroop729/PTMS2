@@ -1,4 +1,4 @@
-export  interface IIncidents{
+export  interface IIncidents {
     Id: number;
     IncidentId: string;
     Percentage: number;
