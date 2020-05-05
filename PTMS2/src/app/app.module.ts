@@ -50,7 +50,7 @@
 
 
 
-// import { BrowserModule } from '@angular/platform-browser';
+ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatExpansionModule} from '@angular/material/expansion';
@@ -61,7 +61,7 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {MatCardModule} from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-// import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { RouterModule} from '@angular/router';
 import {MatSidenavModule} from '@angular/material/sidenav';
@@ -135,7 +135,7 @@ FusionChartsModule.fcRoot(FusionCharts, stackedcolumn2d, pie3d, Column2D, FintTh
 
   ],
   imports: [
-  //  BrowserModule,
+    BrowserModule,
     CommonModule,
     MatSidenavModule,
     MatToolbarModule,
@@ -143,7 +143,7 @@ FusionChartsModule.fcRoot(FusionCharts, stackedcolumn2d, pie3d, Column2D, FintTh
     ReactiveFormsModule,
     HttpClientModule,
     HttpClientModule,
-    // BrowserAnimationsModule,
+    BrowserAnimationsModule,
     MatExpansionModule,
     MatButtonModule,
     MatDatepickerModule,

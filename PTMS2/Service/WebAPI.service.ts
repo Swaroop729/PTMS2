@@ -17,9 +17,15 @@ export class WebAPIService {
   // url='  http://localhost:3000/Incidents'
   // using github.json
 //  url = 'https://my-json-server.typicode.com/Swaroop729/WebAPI/Incidents/'
- url = `http://localhost:56161/api/Incident`;
- url1 = `http://localhost:56161/api/Incident`;
- url2 = `http://localhost:56161/api/Incidents`;
+//  url = `http://localhost:56161/api/Incident`;
+//  url1 = `http://localhost:56161/api/Incident`;
+ 
+//  //This is the working incidents url
+//  //url2 = `http://localhost:56161/api/Incidents`;
+
+ url2 = 'https://my-json-server.typicode.com/Swaroop729/WebAPI/Incidents/';
+ url = 'https://my-json-server.typicode.com/Swaroop729/WebAPI/Incidents/';
+ url1='https://my-json-server.typicode.com/Swaroop729/WebAPI/Incidents/';
  CQA;
  Scorecard;
  Gupta;
@@ -34,8 +40,13 @@ contentheaders = new HttpHeaders().set('content-type', 'application/json');
       return this.http.get(this.url2);
      }
 
-     getIncidentDetails(id) {
-      return this.http.get(this.url2 + '/' + 'GetIncidentDetails' + '/' + id + '/' + 1);
+     // The below method is for the web api service but since we are running now on the json db we need to comment it out so it doesn't hit the url
+    //  getIncidentDetails(id) {
+    //   return this.http.get(this.url2 + '/' + 'GetIncidentDetails' + '/' + id + '/' + 1);
+    // }
+
+    getIncidentDetails(id) {
+      return this.http.get(this.url2 + '?' + 'IncidentId=' +  id );
     }
     /* The below consists of request methods and options and headers which are not working as of now so
     commenting it as it is a post method we will work on it later */

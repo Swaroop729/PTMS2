@@ -25,7 +25,8 @@ export class IncidentComponent implements OnInit {
 
     Service.getIncidents()
     .subscribe((Response) => {
-      this.Incidents = Response.toString();
+      this.Incidents = Response;
+      //this.Incidents = Response.toString();
     });
     }
 

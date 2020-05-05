@@ -1,51 +1,92 @@
-
 <header>
-  <mdb-navbar SideClass="navbar fixed-top navbar-expand-lg navbar-dark bg-indigo scrolling-navbar intro-fixed-nav" [containerInside]="false">
-      <logo>
-          <a class="logo navbar-brand" routerLink="/Home/"><strong>PTMS2</strong></a>
-      </logo>
-      <links>
-          <ul class="navbar-nav mr-auto">
-              <li class="nav-item waves-light" routerLinkActive="active current" mdbRippleRadius>
-                  <a class="nav-link" routerLink="/Home/" >Home </a>
-              </li>
-              <li class="nav-item waves-light" routerLinkActive="active current" mdbRippleRadius>
-                  <a class="nav-link" routerLink="/Incident/">Incident</a>
-              </li>
-              <li class="nav-item waves-light" routerLinkActive="active current" mdbRippleRadius>
-                  <a class="nav-link" routerLink="/Incidents/">Incidents</a>
-              </li>
-              <li class="nav-item waves-light" routerLinkActive="active current" mdbRippleRadius>
-                      <a class="nav-link" routerLink="/TaskManagement/">Task Management</a>
-              </li>
-              <!-- <li class="nav-item waves-light" routerLinkActive="active current" mdbRippleRadius>
+  <mdb-navbar
+    SideClass="navbar fixed-top navbar-expand-lg navbar-dark bg-indigo scrolling-navbar intro-fixed-nav"
+    [containerInside]="false"
+  >
+    <logo>
+      <a class="logo navbar-brand" routerLink="/"><strong>PTMS2</strong></a>
+    </logo>
+    <links>
+      <ul class="navbar-nav mr-auto">
+        <li
+          class="nav-item waves-light"
+          routerLinkActive="active current"
+          mdbRippleRadius
+        >
+          <a class="nav-link" routerLink="/Home/">Home </a>
+        </li>
+        <li
+          class="nav-item waves-light"
+          routerLinkActive="active current"
+          mdbRippleRadius
+        >
+          <a class="nav-link" routerLink="/Incident/">Incident</a>
+        </li>
+        <li
+          class="nav-item waves-light"
+          routerLinkActive="active current"
+          mdbRippleRadius
+        >
+          <a class="nav-link" routerLink="/Incidents/">Incidents</a>
+        </li>
+        <li
+          class="nav-item waves-light"
+          routerLinkActive="active current"
+          mdbRippleRadius
+        >
+          <a class="nav-link" routerLink="/TaskManagement/">Task Management</a>
+        </li>
+        <!-- <li class="nav-item waves-light" routerLinkActive="active current" mdbRippleRadius>
                       <a class="nav-link" routerLink="/IncidentDetail/:IncidentId">Incident Detail</a>
               </li> -->
-              <li class="nav-item waves-light" routerLinkActive="active current" mdbRippleRadius>
-                  <a class="nav-link" routerLink="/WorkGraph">Work Graph</a>
-          </li>
-          <li class="nav-item waves-light" routerLinkActive="active current" mdbRippleRadius>
-              <a class="nav-link" routerLink="/AddIncident">Add Incident</a>
-      </li>
-      <li class="nav-item waves-light" routerLinkActive="active current" mdbRippleRadius>
-        <a class="nav-link" routerLink="/IncidentsNotification">Incidents Notification</a>
-</li>
-      <li class="nav-item waves-light" routerLinkActive="active current" mdbRippleRadius>
+        <li
+          class="nav-item waves-light"
+          routerLinkActive="active current"
+          mdbRippleRadius
+        >
+          <a class="nav-link" routerLink="/WorkGraph">Work Graph</a>
+        </li>
+        <li
+          class="nav-item waves-light"
+          routerLinkActive="active current"
+          mdbRippleRadius
+        >
+          <a class="nav-link" routerLink="/AddIncident">Add Incident</a>
+        </li>
+        <li
+          class="nav-item waves-light"
+          routerLinkActive="active current"
+          mdbRippleRadius
+        >
+          <a class="nav-link" routerLink="/IncidentsNotification"
+            >Incidents Notification</a
+          >
+        </li>
+        <li
+          class="nav-item waves-light"
+          routerLinkActive="active current"
+          mdbRippleRadius
+        >
           <a class="nav-link" routerLink="/AddLeave">Add Leave</a>
-  </li>
-  <li class="nav-item waves-light" routerLinkActive="active current" mdbRippleRadius>
-        <a class="nav-link" routerLink="['/login']" (click)="Logout()">Logout</a>
-</li>
-  <!-- <li  routerLink="['/login']">
+        </li>
+        <li
+          class="nav-item waves-light"
+          routerLinkActive="active current"
+          mdbRippleRadius
+        >
+          <a class="nav-link" routerLink="['/login']" (click)="Logout()"
+            >Logout</a
+          >
+        </li>
+        <!-- <li  routerLink="['/login']">
         <a class="nav-link" routerLink="/AddLeave">Addsdf Leave</a>
 </li>    -->
-  <!-- <li class="nav-item waves-light" routerLinkActive="active current" *ngFor="let user of users" mdbRippleRadius>
+        <!-- <li class="nav-item waves-light" routerLinkActive="active current" *ngFor="let user of users" mdbRippleRadius>
         {{user.username}} ({{user.firstName}} {{user.lastName}})
         - <a class="nav-link" (click)="deleteUser(user.id)" class="text-danger">Delete</a>
     </li>
       <p><a [routerLink]="['/login']">Logout</a></p>     -->
-    </ul>
-
-      </links>
+      </ul>
+    </links>
   </mdb-navbar>
-</header>   
+</header>

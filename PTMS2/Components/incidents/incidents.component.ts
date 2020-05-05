@@ -17,7 +17,9 @@ export class IncidentsComponent implements OnInit {
   constructor( private Service:  WebAPIService) {
   Service.getIncidents()
   .subscribe((Response) => {
-    this.Incidents = Response.toString();
+    this.Incidents = Response;
+    //this.Incidents = Response.toString();
+    console.log(this.Incidents)
   });
 }
   ngOnInit() {
