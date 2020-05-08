@@ -69,15 +69,7 @@
         >
           <a class="nav-link" routerLink="/AddLeave">Add Leave</a>
         </li>
-        <li
-          class="nav-item waves-light"
-          routerLinkActive="active current"
-          mdbRippleRadius
-        >
-          <a class="nav-link" routerLink="['/login']" (click)="Logout()"
-            >Logout</a
-          >
-        </li>
+
         <!-- <li  routerLink="['/login']">
         <a class="nav-link" routerLink="/AddLeave">Addsdf Leave</a>
 </li>    -->
@@ -87,6 +79,36 @@
     </li>
       <p><a [routerLink]="['/login']">Logout</a></p>     -->
       </ul>
+      <div class="navbar-nav">
+        <form class="form-inline">
+          <div class="md-form my-0">
+            <input
+              style="position: relative;"
+              class="form-control mr-sm-2"
+              type="text"
+              placeholder="Search Incidents"
+              aria-label="Search"
+              #search
+              (keydown.enter)="submitMethod($event)"
+              (blur)="search.value = ''"
+            />
+            <i
+              style="color: white; margin-left: -1.75rem; font-size: smaller;"
+              class="fa fa-search"
+              (click)="submitMethod(search.value)"
+            ></i>
+          </div>
+        </form>
+        <li
+          class="nav-item waves-light"
+          routerLinkActive="active current"
+          mdbRippleRadius
+        >
+          <a class="nav-link" routerLink="['/login']" (click)="Logout()"
+            >Logout</a
+          >
+        </li>
+      </div>
     </links>
   </mdb-navbar>
 </header>

@@ -14,7 +14,6 @@ export class TasksManagementComponent implements OnInit {
   constructor(Service: WebAPIService) {
     Service.getIncidents().subscribe((Response) => {
       this.Incidents = Response;
-      console.log(typeof Response);
       // this.Complete=Response.toString()
     });
   }
