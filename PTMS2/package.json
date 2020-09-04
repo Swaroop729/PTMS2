@@ -42,7 +42,7 @@
     "ng2-dnd": "^5.0.2",
     "ng2-notifications": "^0.3.0",
     "ngx-bootstrap": "^3.3.0",
-    "node-sass": "^4.12.0",
+    "node-sass": "^4.13.1",
     "rxjs": "^6.5.3",
     "rxjs-compat": "^6.5.3",
     "tslib": "^1.10.0",
