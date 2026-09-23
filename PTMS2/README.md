@@ -1,27 +1,148 @@
 # PTMS2
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.1.5.
+PTMS2 is an Angular-based task management application designed for managing project activities, incidents, and task workflows. The project uses Angular 8 with TypeScript, Angular Material, Bootstrap, and charting libraries for a dashboard-oriented interface.
 
-## Development server
+## Project Overview
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+This application is built for:
+- Task tracking and monitoring
+- Incident management
+- Role-based workflow handling
+- Dashboard visualization with charts and progress indicators
+- Responsive UI using Angular Material and Bootstrap
 
-## Code scaffolding
+## Tech Stack
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- Angular 8
+- TypeScript
+- SCSS
+- Angular Material
+- Bootstrap 4
+- Chart.js
+- FusionCharts
+- RxJS
+
+## Prerequisites
+
+Before running the project, make sure you have the following installed:
+
+- Node.js 10.x or 12.x (recommended for Angular 8 compatibility)
+- npm 6.x or later
+- Angular CLI 8.x
+
+## Installation
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/Swaroop729/PTMS2.git
+   ```
+
+2. Navigate to the project directory:
+   ```bash
+   cd PTMS2
+   ```
+
+3. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+## Running the App
+
+Start the development server:
+
+```bash
+npm start
+```
+
+or:
+
+```bash
+npx ng serve
+```
+
+Then open:
+
+```text
+http://localhost:4200/
+```
+
+The app will automatically reload when source files change.
 
 ## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+To create a production build:
 
-## Running unit tests
+```bash
+npm run build
+```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+For a production-optimized build:
 
-## Running end-to-end tests
+```bash
+npm run build -- --prod
+```
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+The build output will be generated in the `dist/` directory.
 
-## Further help
+## Testing
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Run unit tests:
+
+```bash
+npm test
+```
+
+Run end-to-end tests:
+
+```bash
+npm run e2e
+```
+
+## Linting
+
+```bash
+npm run lint
+```
+
+## Notes for Stability
+
+This project is based on Angular 8 and older third-party libraries. For a stable local setup:
+
+- Use a compatible Node.js version (preferably Node 10/12)
+- If `node-sass` build issues appear, reinstall dependencies:
+  ```bash
+  rm -rf node_modules package-lock.json
+  npm install
+  ```
+- If needed, clean the Angular cache:
+  ```bash
+  npx ng cache clean
+  ```
+
+## Project Structure
+
+```text
+PTMS2/
+├── src/
+├── e2e/
+├── angular.json
+├── package.json
+├── tsconfig.json
+├── README.md
+└── ...
+```
+
+## License
+
+This project does not currently declare a license in the repository metadata. Please check the repository for any licensing updates before using it in a production environment.
+
+## Support
+
+For issues or improvements, open an issue in the GitHub repository and provide:
+- Node.js version
+- npm version
+- Angular CLI version
+- Operating system
+- Error logs or screenshots
+
